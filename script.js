@@ -1,3 +1,8 @@
+let computerScore = 0;
+let humanScore = 0;
+
+
+
 function getComputerChoice() {
   // Create an array of choices.
   const choices = ["Rock", "Paper", "Scissors"];
