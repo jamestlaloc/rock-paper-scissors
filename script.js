@@ -18,27 +18,25 @@ function getHumanChoice() {
   return humanChoice.toLowerCase();
 };
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
 function playGame() {
   let computerScore = 0;
   let humanScore = 0;
 
-  for(let i = 0; i < 5; i++){
-    playRound();
-    humanChoice;
-    computerChoice;
-    
+  for(let i = 0; i < 7; i++){
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    console.log(`Your Score: ${humanScore}`);
+    console.log(`Computer's Score: ${computerScore}`);
+    console.log("---------------------")
   }
-  
   function playRound(humanChoice, computerChoice){
-    console.log(humanChoice);
+    
   console.log(`You: ${humanChoice}`);
   console.log(`Computer: ${computerChoice}`);
     if(humanChoice === "paper" && computerChoice === "rock"){
       humanScore++;
-      return console.log("You win!!! Paper beats Rock.");
+      console.log("You win!!! Paper beats Rock.");
     } else if (humanChoice === "rock" && computerChoice === "scissors"){
       humanScore++;
       console.log("You win!!! Rock beats Scissors."); 
@@ -57,8 +55,6 @@ function playGame() {
     } else {
       console.log("It's a draw!")
     }
-    console.log(`Your Score: ${humanScore}`);
-    console.log(`Computer's Score: ${computerScore}`);
 };
 }
 
