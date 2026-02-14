@@ -23,31 +23,31 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice){
   let roundWinner;
-  console.log(humanChoice);
-  console.log(computerChoice);
+  console.log(`You: ${humanChoice}`);
+  console.log(`Computer: ${computerChoice}`);
     if(humanChoice === "paper" && computerChoice === "rock"){
-      console.log("You: You lose! Paper beats Rock.");
+      console.log("You win!!! Paper beats Rock.");
       humanScore++;
     } else if (humanChoice === "rock" && computerChoice === "scissors"){
-      console.log("You: You lose! Rock beats Scissors.");
+      console.log("You win!!! Rock beats Scissors.");
       humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper"){
-      console.log("You: You lose! Scissors beats Rock.");
+      console.log("You win!!! Scissors beats Rock.");
       humanScore++;
     } else if (computerChoice === "paper" && humanChoice === "rock"){
-      console.log("Computer: You lose! Paper beats Rock.");
+      console.log("You lose! Paper beats Rock.");
       computerScore++;
     } else if (computerChoice === "rock" && humanChoice === "scissors"){
-      console.log("Computer: You lose! rock beats scissors.");
+      console.log("You lose! rock beats scissors.");
       computerScore++;
     } else if (computerChoice === "scissors" && humanChoice === "paper"){
-      console.log("Computer: You lose! Scissors beats Paper.");
+      console.log("You lose! Scissors beats Paper.");
       computerScore++;
     } else {
       console.log("It's a draw!")
     }
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log(`Your Score: ${humanScore}`);
+    console.log(`Computer's Score: ${computerScore}`);
 };
 
 const humanChoice = getHumanChoice();
