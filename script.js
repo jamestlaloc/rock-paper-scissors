@@ -1,17 +1,16 @@
 function getComputerChoice() {
-  let randomNumber = Math.floor(Math.random() * 30);
+  // Create an array of choices.
+  const choices = ["Rock", "Paper", "Scissors"];
 
-  return (randomNumber <= 10) ? "Rock" :
-  (randomNumber > 10 && randomNumber<= 20) ? "Paper" : "Scissors";
+  //Declare a random choice variable and assign it to the value that grabs a random number based on the length of the array of choices.
 
+  //Math.random() generates a random floating number between 0 and 1. When multiplied by a number, it creates a max number.
 
-  // if (randomNumber <= 10) {
-  //   return "Rock";
-  // } else if (randomNumber > 10 && randomNumber <= 20){
-  //   return "Paper";
-  // } else {
-  //   return "Scissors";
-  // }
+  //Math.floor() then rounds that number down so that we get a whole number.
+  let randomChoice = Math.floor(Math.random() * choices.length);
+
+  // We return the random index that is chosen via the randomChoice variable, and using brackets to access that index from the choices array.
+  return choices[randomChoice];
 };
 
 console.log(getComputerChoice());
