@@ -2,7 +2,7 @@ function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 30);
 
   return (randomNumber <= 10) ? "Rock" :
-  (randomNumber > 10 && randomNumber<= 20) ? "paper" : "Scissors";
+  (randomNumber > 10 && randomNumber<= 20) ? "Paper" : "Scissors";
 
 
   // if (randomNumber <= 10) {
