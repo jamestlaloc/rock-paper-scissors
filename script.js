@@ -22,14 +22,15 @@ function playGame() {
   let computerScore = 0;
   let humanScore = 0;
 
-  for(let i = 0; i < 7; i++){
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-    console.log(`Your Score: ${humanScore}`);
-    console.log(`Computer's Score: ${computerScore}`);
-    console.log("---------------------")
-  }
+  // for(let i = 0; i < 7; i++){
+  //   const humanChoice = getHumanChoice();
+  //   const computerChoice = getComputerChoice();
+  //   playRound(humanChoice, computerChoice);
+  //   console.log(`Your Score: ${humanScore}`);
+  //   console.log(`Computer's Score: ${computerScore}`);
+  //   console.log("---------------------")
+  // }
+
   function playRound(humanChoice, computerChoice){
     
   console.log(`You: ${humanChoice}`);
