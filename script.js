@@ -6,7 +6,8 @@ const cpuPoint = document.createElement("p");
 const results = document.querySelector(".results");
 const buttons = document.querySelectorAll("button");
 const newGame = document.createElement("button");
-const gameOver = false;
+newGame.textContent = "Play Again";
+let gameOver = false;
 
 // Keeps track of score:
 let computerScore = 0;
@@ -22,6 +23,8 @@ displayScores();
 // Runs the game:
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
+    if(gameOver) return;
+
     const humanChoice = event.target.textContent.toLowerCase();
     const computerChoice = getComputerChoice();
     playGame(humanChoice, computerChoice)})});
@@ -36,12 +39,15 @@ function playGame(humanChoice, computerChoice) {
 
   // Decides the winner:
   if (computerScore === 5) {
-    gameReset();
+    gameOver = true;
     para.textContent = "Computer wins the game!"
+    results.appendChild(newGame);
+
   };
   if (humanScore === 5) {
-    gameReset();
+    gameOver = true;
     para.textContent = "You win the game!!"
+    results.appendChild(newGame);
   }
   results.appendChild(para);
   
@@ -86,5 +92,13 @@ function displayScores() {
 function gameReset() {
   computerScore = 0;
   humanScore = 0;
-  para.textContent = '';
+  displayScores();
+  gameOver = false;
+  results.removeChild(newGame);
 }
+
+newGame.addEventListener('click', (event) => {
+  gameReset();
+  para.textContent = "You start!"
+
+});
