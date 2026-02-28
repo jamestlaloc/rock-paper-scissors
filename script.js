@@ -1,63 +1,48 @@
-const buttons = document.querySelectorAll("btn");
-console.log(buttons);
+const para = document.createElement("p");
+const results = document.querySelector(".results");
+const buttons = document.querySelectorAll("button");
 
-// function getComputerChoice() {
-//   const choices = ["Rock", "Paper", "Scissors"];
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    let humanChoice = event.textContent;
+    console.log(humanChoice)
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice)})});
 
-//   let randomChoice = Math.floor(Math.random() * choices.length);
+function getComputerChoice() {
+  const choices = ["Rock", "Paper", "Scissors"];
 
-//   return choices[randomChoice].toLowerCase();
-// };
+  let randomChoice = Math.floor(Math.random() * choices.length);
 
-// function playGame() {
-//   let computerScore = 0;
-//   let humanScore = 0;
-// }
+  return choices[randomChoice].toLowerCase();
+};
 
-// function playRound(humanChoice){
-//   getComputerChoice();
-//   playerSelection();
-//   console.log(humanChoice);
-    
-//   console.log(`You chose: ${humanChoice}`);
-//   console.log(`Computer: ${computerChoice}`);
-//     if(humanChoice === "paper" && computerChoice === "rock"){
-//       humanScore++;
-//       console.log("You win!!! Paper beats Rock.");
-//     } else if (humanChoice === "rock" && computerChoice === "scissors"){
-//       humanScore++;
-//       console.log("You win!!! Rock beats Scissors."); 
-//     } else if (humanChoice === "scissors" && computerChoice === "paper"){
-//       humanScore++;
-//       console.log("You win!!! Scissors beats Paper.");
-//     } else if (computerChoice === "paper" && humanChoice === "rock"){
-//       computerScore++;
-//       console.log("You lose! Paper beats Rock.");
-//     } else if (computerChoice === "rock" && humanChoice === "scissors"){
-//       computerScore++;
-//       console.log("You lose! rock beats scissors.");    
-//     } else if (computerChoice === "scissors" && humanChoice === "paper"){
-//       computerScore++;
-//       console.log("You lose! Scissors beats Paper.");
-//     } else {
-//       console.log("It's a draw!")
-//     }
-// };
-
-// const rock = document.querySelector('.rock');
-// const paper = document.querySelector('.paper');
-// const scissors = document.querySelector('.scissors');
-
-
-// rock.addEventListener('click', () => {
-//   humanChoice = 'rock';
-//   playRound();
-// });
-// paper.addEventListener('click', () => {
-//   humanChoice = 'paper';
-//   playRound();
-// });
-// scissors.addEventListener('click', () => {
-//   humanChoice = 'scissors';
-//   playRound();
-// });
+function playRound(humanChoice, computerChoice){
+  let computerScore = 0;
+  let humanScore = 0;
+  
+  console.log(`You chose: ${humanChoice}`);
+  console.log(`Computer: ${computerChoice}`);
+    if(humanChoice === "paper" && computerChoice === "rock"){
+      humanScore++;
+      para.textContent = "You win!!! Paper beats Rock.";
+      results.appendChild(para);
+    } else if (humanChoice === "rock" && computerChoice === "scissors"){
+      humanScore++;
+      console.log("You win!!! Rock beats Scissors."); 
+    } else if (humanChoice === "scissors" && computerChoice === "paper"){
+      humanScore++;
+      console.log("You win!!! Scissors beats Paper.");
+    } else if (computerChoice === "paper" && humanChoice === "rock"){
+      computerScore++;
+      console.log("You lose! Paper beats Rock.");
+    } else if (computerChoice === "rock" && humanChoice === "scissors"){
+      computerScore++;
+      console.log("You lose! rock beats scissors.");    
+    } else if (computerChoice === "scissors" && humanChoice === "paper"){
+      computerScore++;
+      console.log("You lose! Scissors beats Paper.");
+    } else {
+      console.log("It's a draw!")
+    }
+};
