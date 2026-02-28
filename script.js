@@ -1,4 +1,7 @@
 const para = document.createElement("p");
+const humanScoreDisplay = document.querySelector(".human-score");
+const humanPoint = document.createElement("p");
+const cpuScoreDisplay = document.querySelector(".cpu-score");
 const results = document.querySelector(".results");
 const buttons = document.querySelectorAll("button");
 
@@ -15,31 +18,37 @@ function getComputerChoice() {
 };
 
 function playRound(humanChoice, computerChoice){
-  let computerScore = 0;
-  let humanScore = 0;
+  para.textContent = `You chose: ${humanChoice} | Computer chose: ${computerChoice}`;
+  results.append(para);
   
-  console.log(`You chose: ${humanChoice}`);
-  console.log(`Computer: ${computerChoice}`);
     if(humanChoice === "paper" && computerChoice === "rock"){
       humanScore++;
+      humanPoint.textContent = humanScore;
       para.textContent = "You win!!! Paper beats Rock.";
+      humanScoreDisplay.appendChild(humanPoint);
       results.appendChild(para);
     } else if (humanChoice === "rock" && computerChoice === "scissors"){
       humanScore++;
-      console.log("You win!!! Rock beats Scissors."); 
+      para.textContent = "You win!!! Rock beats Scissors."; 
+      results.appendChild(para);
     } else if (humanChoice === "scissors" && computerChoice === "paper"){
       humanScore++;
-      console.log("You win!!! Scissors beats Paper.");
+      para.textContent= "You win!!! Scissors beats Paper.";
+      results.appendChild(para);
     } else if (computerChoice === "paper" && humanChoice === "rock"){
       computerScore++;
-      console.log("You lose! Paper beats Rock.");
+      para.textContent = "You lose! Paper beats Rock.";
+      results.appendChild(para);
     } else if (computerChoice === "rock" && humanChoice === "scissors"){
       computerScore++;
-      console.log("You lose! rock beats scissors.");    
+      para.textContent = "You lose! rock beats scissors.";
+      results.appendChild(para);    
     } else if (computerChoice === "scissors" && humanChoice === "paper"){
       computerScore++;
-      console.log("You lose! Scissors beats Paper.");
+      para.textContent = "You lose! Scissors beats Paper.";
+      results.appendChild(para);
     } else {
-      console.log("It's a draw!")
+      para.textContent = "It's a draw!";
+      results.appendChild(para);
     }
 };
