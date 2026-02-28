@@ -4,16 +4,13 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
-    let humanChoice = event.textContent;
-    console.log(humanChoice)
+    let humanChoice = event.target.textContent.toLowerCase();
     let computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice)})});
 
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
-
   let randomChoice = Math.floor(Math.random() * choices.length);
-
   return choices[randomChoice].toLowerCase();
 };
 
