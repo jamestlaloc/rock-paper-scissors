@@ -32,7 +32,7 @@ buttons.forEach((button) => {
 function playGame(humanChoice, computerChoice) {
 
   // Runs the round:
-  playRound(computerChoice, humanChoice);
+  playRound(humanChoice, computerChoice);
 
   // Takes the stored points and renders them to display in DOM:
   displayScores();
